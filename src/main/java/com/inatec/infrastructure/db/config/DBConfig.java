@@ -26,7 +26,7 @@ import java.util.Properties;
 @EnableAutoConfiguration
 @PropertySource({"classpath:application.properties"})
 @Slf4j
-public class MariaDBConfig {
+public class DBConfig {
 
     @Autowired
     private Environment env;
@@ -54,7 +54,6 @@ public class MariaDBConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setDatabase(Database.MYSQL);
         vendorAdapter.setGenerateDdl(false);
         vendorAdapter.setShowSql(true);
 

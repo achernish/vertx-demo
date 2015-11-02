@@ -39,7 +39,7 @@ public class PaymentRepositoryImpl implements PaymentRepository {
         selectPaymentByCCNQuery.setParameter("PAYMENTTYPEID", creditCardNumber);
         List payments  = selectPaymentByCCNQuery.getResultList();
         if (payments != null && !payments.isEmpty()) {
-            Integer paymentId = (Integer)((Object[])payments.get(0))[0];
+            Object paymentId = ((Object[])payments.get(0))[0];
             log.debug("Payment {} has found by credit card number {}.", paymentId, creditCardNumber);
 
 
@@ -47,7 +47,7 @@ public class PaymentRepositoryImpl implements PaymentRepository {
             selectPaymentByIdQuery.setParameter("ID", paymentId);
             payments = selectPaymentByCCNQuery.getResultList();
             if (payments != null && !payments.isEmpty()) {
-                log.debug("Payment {} has found by id {}.", (Integer)((Object[])payments.get(0))[0], creditCardNumber);
+                log.debug("Payment {} has found by id {}.", ((Object[])payments.get(0))[0], creditCardNumber);
             }
         }
 
