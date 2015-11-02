@@ -48,6 +48,7 @@ public class MyVerticle extends AbstractVerticle {
         log.debug("Start: getTest()");
 
         boolean result = paymentRepository.createAndQueryPayment();
+        log.debug("Test DB result {}", result);
 
         log.debug("Create response for getTest()");
         final HttpServerResponse response = routingContext.response();
